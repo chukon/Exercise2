@@ -13,9 +13,14 @@
 @end
 
 @implementation Exercise2ViewController
+@synthesize webView;
+@synthesize txtURL;
 
 - (void)viewDidLoad
 {
+    NSURL *url = [NSURL URLWithString:@"http://msn.com"];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:req];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -26,4 +31,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [webView release];
+    [txtURL release];
+    [super dealloc];
+}
+- (IBAction)btnGo:(id)sender {
+    NSURL *url = [NSURL URLWithString:txtURL.text];
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:req];
+    [super viewDidLoad];
+}
 @end

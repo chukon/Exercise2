@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface Exercise2ViewController : UIViewController
+{
+    IBOutlet UIWebView *webView;
+    IBOutlet UITextField *txtURL;
+}
+@property (retain, nonatomic) UIWebView *webView;
+- (IBAction)btnGo:(id)sender;
+@property (retain, nonatomic) UITextField *txtURL;
 
 @end
